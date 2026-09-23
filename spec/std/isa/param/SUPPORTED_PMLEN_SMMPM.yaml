@@ -28,10 +28,10 @@ long_name: Pointer mask length for M mode
 schema:
   type: array
   items:
-    - const: 0
-  additionalItems:
     type: integer
-    enum: [7, 16]
+    enum: [0, 7, 16]
+  contains:
+    const: 0
   minItems: 1
   maxItems: 3
   uniqueItems: true
