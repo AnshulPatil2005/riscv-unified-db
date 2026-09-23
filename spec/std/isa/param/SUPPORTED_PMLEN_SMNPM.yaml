@@ -15,6 +15,8 @@ description: |
 
   Options:
 
+    0::
+      PMLEN=0 (pointer masking is disabled)
     7::
       PMLEN=XLEN-57 (i.e., PMLEN=7 on RV64)
     16::
@@ -22,16 +24,18 @@ description: |
 
   The current standard only supports these values (`zpm.adoc`, tag
   `norm:pmlen_supported_values`). `PMM`=00 (pointer masking disabled,
-  PMLEN=0) is mandatory and always available, so it is not enumerated
+  PMLEN=0) is mandatory and always available, so it is mandatory
   here.
 long_name: Pointer mask length for next mode below M mode
 schema:
   type: array
   items:
+    - const: 0
+  additionalItems:
     type: integer
     enum: [7, 16]
   minItems: 1
-  maxItems: 2
+  maxItems: 3
   uniqueItems: true
 definedBy:
   extension:
